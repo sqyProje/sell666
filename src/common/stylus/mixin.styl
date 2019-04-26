@@ -1,0 +1,25 @@
+/*start 1像素border-bottom边框解决安卓边框变粗问题*/
+border-1px($rgba)
+  position: relative
+  &:after
+    display block
+    content:''
+    width: 100%
+    border-top:1px solid $rgba
+    position: absolute
+    left: 0
+    bottom:0
+
+border-1px-no()
+  &:after
+    display: none
+/*end*/
+
+
+
+//判断使用2倍图和三倍图的方式
+bg-image($url)
+  background-image:url($url+"@2x.png")
+  @media (-webkit-min-device-pixel-ration:3),(min-device-pixel-ration:3)
+    background-image:url($utl+ "@3x.png")
+
